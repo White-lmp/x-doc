@@ -25,15 +25,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '20'
 
-      - name: Install Gitbook CLI
-        run: |
-          npm install -g gitbook-cli
-          gitbook install
+      - name: Install Honkit
+        run: npm install -g honkit
 
-      - name: Build Gitbook
-        run: gitbook build
+      - name: Build Book
+        run: honkit build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
