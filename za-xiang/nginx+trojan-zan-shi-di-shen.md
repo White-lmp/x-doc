@@ -82,13 +82,12 @@ http {
 
 **3. listen端口可以1-65535随意修改，此处为客户端连接端口**
 
-{% hint style="info" %}
-centos系统请关闭selinux，不然可能导致转发失败。
-
-sudo setenforce 0
-
-sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
-{% endhint %}
+> **提示:**
+> centos系统请关闭selinux，不然可能导致转发失败。
+>
+> sudo setenforce 0
+>
+> sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 ## XrayR Trojan配置
 
@@ -101,13 +100,11 @@ EnableFallback: true
 CertMode: none
 ```
 
-{% hint style="info" %}
-注意1：请务必确保CertMode为none，交由Nginx处理tls
-{% endhint %}
+> **提示:**
+> 注意1：请务必确保CertMode为none，交由Nginx处理tls
 
-{% hint style="info" %}
-注意2：在回落时请确保回落站点是http1.1，nginx如果有一个站点是h2会导致全部站点都变成h2（巨坑）
-{% endhint %}
+> **提示:**
+> 注意2：在回落时请确保回落站点是http1.1，nginx如果有一个站点是h2会导致全部站点都变成h2（巨坑）
 
 **完整样例**
 

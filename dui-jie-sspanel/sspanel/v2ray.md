@@ -1,8 +1,7 @@
 # 对接V2ray (已废弃)
 
-{% hint style="info" %}
-在SSPanel-UIM 2022.12.1 版本之后的新订阅系统中，使用节点地址配置的方法已经被弃用，必须使用 [Custom Config 配置方法](sspanel_custom_config.md)。
-{% endhint %}
+> **提示:**
+> 在SSPanel-UIM 2022.12.1 版本之后的新订阅系统中，使用节点地址配置的方法已经被弃用，必须使用 [Custom Config 配置方法](sspanel_custom_config.md)。
 
 | 协议 | 支持情况 |
 | :--- | :--- |
@@ -18,9 +17,8 @@ IP;监听端口;alterId;(tcp或ws);(tls或不填);path=/xxx|host=xxxx.com|server
 
 alterId设为0，则自动启用VMessAEAD。
 
-{% hint style="info" %}
-注意：VMESS AEAD 将在 2022 年 1 月 1 日强制启用 请注意更新服务端配置，设置alterId = 0
-{% endhint %}
+> **提示:**
+> 注意：VMESS AEAD 将在 2022 年 1 月 1 日强制启用 请注意更新服务端配置，设置alterId = 0
 
 ## tcp示例
 

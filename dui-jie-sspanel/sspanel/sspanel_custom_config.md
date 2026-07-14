@@ -18,7 +18,7 @@
 
 alterId设为0，则自动启用VMessAEAD。
 
-{% hint style="info" %} 注意：VMESS AEAD 将在 2022 年 1 月 1 日强制启用 请注意更新服务端配置，设置alterId = 0 {% endhint %}
+> **提示:** 注意：VMESS AEAD 将在 2022 年 1 月 1 日强制启用 请注意更新服务端配置，设置alterId = 0
 
 ## tcp示例
 

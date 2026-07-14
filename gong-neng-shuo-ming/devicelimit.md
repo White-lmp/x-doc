@@ -6,9 +6,8 @@
 
 配置文件详见：[配置文件说明](../xrayr-pei-zhi-wen-jian-shuo-ming/config.md#mian-ban-dui-jie-pei-zhi)
 
-{% hint style="info" %}
-每一个独立IP地址视为一个设备。
-{% endhint %}
+> **提示:**
+> 每一个独立IP地址视为一个设备。
 
 ## SSPanel 全局设备限制
 
@@ -39,10 +38,8 @@ GlobalDeviceLimitConfig:
 | Timeout       | 连接redis超时时间，单位：秒                                                     |
 | Expiry        | redis中存储的在线用户过期时间，单位：秒                                         |
 
-{% hint style="info" %}
-如果同一redis下对接了多个面板结点，建议同一面板下的结点使用同一redis数据库编号，以保证不同面板之间独立限制。
-{% endhint %}
+> **提示:**
+> 如果同一redis下对接了多个面板结点，建议同一面板下的结点使用同一redis数据库编号，以保证不同面板之间独立限制。
 
-{% hint style="info" %}
-XrayR全局设备限制需要访问Redis服务器，用户第一次连接时会引入额外的延迟。我们实现了缓存机制，只会在用户第一次访问结点时和redis通讯，后续访问会直接从缓存中读取，因此不会引入额外的延迟。
-{% endhint %}
+> **提示:**
+> XrayR全局设备限制需要访问Redis服务器，用户第一次连接时会引入额外的延迟。我们实现了缓存机制，只会在用户第一次访问结点时和redis通讯，后续访问会直接从缓存中读取，因此不会引入额外的延迟。
