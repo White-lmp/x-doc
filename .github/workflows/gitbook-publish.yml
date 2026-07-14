@@ -1,17 +1,43 @@
-name: 'Gitbook Action Build'
+name: 'Deploy Gitbook to GitHub Pages'
+
 on:
   workflow_dispatch:
   push:
     branches:
-      - master  # trigger branch
+      - master
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout action
-      uses: actions/checkout@v2
-    - name: Gitbook Action           # https://github.com/ZanderZhao/gitbook-action/releases
-      uses: ZanderZhao/gitbook-action@v1.2.4  # -> or ZanderZhao/gitbook-action@master.  If not use master click above, use latest please 
-      with:                                   #    or fork this repo and use YourName/gitbook-action@master
-        token: ${{ secrets.PERSONAL_TOKEN }}  # -> remember add this in settings/secrets as following
-        prepare_install: gitbook install
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+
+      - name: Install Gitbook CLI
+        run: |
+          npm install -g gitbook-cli
+          gitbook install
+
+      - name: Build Gitbook
+        run: gitbook build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_book
+          force_orphan: true
